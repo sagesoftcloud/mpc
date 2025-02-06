@@ -1,17 +1,17 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Marikina Polytechnic College EC2 Instance'
+Description: 'Marikina Polytechnic College EC2 Instance - CIS'
 
 Resources:
 
-  MPCInstance:
+  MPC_CISInstance:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0be48b687295f8bd6
       InstanceType: t3.xlarge
       KeyName: mpc-private-key
       BlockDeviceMappings:
-        - DeviceName: /dev/xvda1
+        - DeviceName: /dev/xvda
           Ebs:
             Encrypted: false
             DeleteOnTermination: true
@@ -34,7 +34,7 @@ Resources:
 Outputs:
   InstanceId:
     Description: EC2 Instance ID
-    Value: !Ref MPCInstance
+    Value: !Ref MPC_CISInstance
 #WHITELISTING
 #WhitelistNewIP:
 #    Type: AWS::EC2::SecurityGroupIngress
