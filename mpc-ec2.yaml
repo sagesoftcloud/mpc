@@ -11,7 +11,7 @@ Resources:
       InstanceType: t3.xlarge
       KeyName: mpc-private-key
       BlockDeviceMappings:
-        - DeviceName: /dev/sda1
+        - DeviceName: /dev/xvda
           Ebs:
             Encrypted: false
             DeleteOnTermination: true
