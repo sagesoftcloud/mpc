@@ -39,6 +39,19 @@ Resources:
       ToPort: 22
       CidrIp: 203.0.113.50/32  # Replace with the IP you want to whitelist
       Description: Whitelisted IP for SSH access
+# Allocate Elastic IP
+  ElasticIP:
+    Type: AWS::EC2::EIP
+    Properties: 
+      Domain: vpc  # Use 'vpc' if the EIP is for a VPC
+
+  # Associate Elastic IP with EC2 Instance
+  EIPAssociation:
+    Type: AWS::EC2::EIPAssociation
+    Properties:
+      InstanceId: !Ref MPCCISInstance
+      AllocationId: !Ref ElasticIP
+
 
 Outputs:
   InstanceId:
