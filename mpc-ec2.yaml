@@ -16,7 +16,7 @@ Resources:
             Encrypted: false
             DeleteOnTermination: true
             Iops: 3000
-            SnapshotId: snap-026b36c7d8fd55d61
+            #SnapshotId: snap-026b36c7d8fd55d61
             VolumeSize: 200
             VolumeType: gp3
       NetworkInterfaces:
