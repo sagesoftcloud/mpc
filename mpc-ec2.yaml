@@ -29,7 +29,7 @@ Resources:
         CPUCredits: standard
       Tags:
         - Key: Name
-          Value: Marikina Polytechnic College
+          Value: Marikina Polytechnic College - LMS
 
 Outputs:
   InstanceId:
