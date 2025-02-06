@@ -1,4 +1,3 @@
----
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'Marikina Polytechnic College EC2 Instance - CIS'
 
@@ -31,21 +30,17 @@ Resources:
         - Key: Name
           Value: Marikina Polytechnic College - CIS
 
-
-
+  WhitelistNewIP:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: sg-05238fe2eb9ceff6a
+      IpProtocol: tcp
+      FromPort: 22
+      ToPort: 22
+      CidrIp: 203.0.113.50/32  # Replace with the IP you want to whitelist
+      Description: Whitelisted IP for SSH access
 
 Outputs:
   InstanceId:
     Description: EC2 Instance ID
     Value: !Ref MPCCISInstance
-#WHITELISTING
-WhitelistNewIP:
-  Type: AWS::EC2::SecurityGroupIngress
-  Properties:
-    GroupId: sg-05238fe2eb9ceff6a
-    IpProtocol: tcp
-    FromPort: 22
-    ToPort: 22
-    CidrIp: 203.0.113.50/32  # Replace with the IP you want to whitelist
-    Description: Whitelisted IP for SSH access
-
