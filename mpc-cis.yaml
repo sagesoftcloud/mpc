@@ -40,11 +40,12 @@ Outputs:
     Value: !Ref MPCCISInstance
 #WHITELISTING
 WhitelistNewIP:
-    Type: AWS::EC2::SecurityGroupIngress
-    Properties:
-      GroupId: sg-05238fe2eb9ceff6a
-      IpProtocol: tcp
-      FromPort: 22  # Example: Whitelisting SSH access
-      ToPort: 22
-      CidrIp: 203.0.113.50/32  # Replace with the new IP address you want to whitelist
-      Description: Whitelisted IP for SSH accesss
+  Type: AWS::EC2::SecurityGroupIngress
+  Properties:
+    GroupId: sg-05238fe2eb9ceff6a
+    IpProtocol: tcp
+    FromPort: 22
+    ToPort: 22
+    CidrIp: 203.0.113.50/32  # Replace with the IP you want to whitelist
+    Description: Whitelisted IP for SSH access
+
