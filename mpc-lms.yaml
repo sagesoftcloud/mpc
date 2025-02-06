@@ -1,10 +1,9 @@
----
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Marikina Polytechnic College EC2 Instance'
+Description: 'Marikina Polytechnic College EC2 Instance - LMS'
 
 Resources:
 
-  MPCInstance:
+  MPCLMSInstance:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0be48b687295f8bd6
@@ -29,20 +28,26 @@ Resources:
         CPUCredits: standard
       Tags:
         - Key: Name
-          Value: Marikina Polytechnic College - LMS
+          Value: Marikina Polytechnic College - CIS
+
+  WhitelistNewIP: #TESTING_REMOVE THIS OR REPLACE - this is for template
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: sg-05238fe2eb9ceff6a
+      IpProtocol: tcp
+      FromPort: 22
+      ToPort: 22
+      CidrIp: 203.0.113.50/32  # Replace with the IP you want to whitelist
+      Description: Whitelisted IP for SSH access
+ # Associate Existing Elastic IP with EC2 Instance
+  EIPAssociation:
+    Type: AWS::EC2::EIPAssociation
+    Properties:
+      InstanceId: !Ref MPCLMSInstance
+      AllocationId: eipalloc-0d616b991d6fc4bca  # The existing Elastic IP allocation ID
+
 
 Outputs:
   InstanceId:
     Description: EC2 Instance ID
-    Value: !Ref MPCInstance
-#WHITELISTING
-#WhitelistNewIP:
-#    Type: AWS::EC2::SecurityGroupIngress
-#    Properties:
-#      GroupId: sg-05238fe2eb9ceff6a
-#      IpProtocol: tcp
-#      FromPort: 22  # Example: Whitelisting SSH access
-#      ToPort: 22
-#      CidrIp: 203.0.113.50/32  # Replace with the new IP address you want to whitelist
-#      Description: Whitelisted IP for SSH access
-####
+    Value: !Ref MPCLMSInstance
