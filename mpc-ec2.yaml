@@ -1,0 +1,58 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Blue Card Information System'
+
+Resources:
+
+  BlueCardInfoSysSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: Blue-Card-Information-System-SG
+      GroupDescription: Blue-Card-Information-System-SG
+      VpcId: vpc-00a00aab64be7ec35
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 122.54.231.18/32
+          Description: PGL
+        - IpProtocol: tcp 
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443 
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22 
+          ToPort: 22
+          CidrIp: 58.69.145.1/32
+          Description: SSI OFFICE
+
+  BlueCardInforSysInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0672fd5b9210aa093
+      InstanceType: t2.medium
+      KeyName: blue-card
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            Encrypted: false
+            DeleteOnTermination: true
+            Iops: 3000
+            SnapshotId: snap-026b36c7d8fd55d61
+            VolumeSize: 100
+            VolumeType: gp3
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: false
+          DeviceIndex: 0
+          GroupSet: 
+            - !Ref BlueCardInfoSysSG
+          SubnetId: subnet-0b16335ed019dcea5
+      CreditSpecification:
+        CPUCredits: standard
+      Tags:
+        - Key: Name
+          Value: Blue Card Information System
