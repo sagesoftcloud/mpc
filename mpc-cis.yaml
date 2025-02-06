@@ -47,4 +47,4 @@ WhitelistNewIP:
       FromPort: 22  # Example: Whitelisting SSH access
       ToPort: 22
       CidrIp: 203.0.113.50/32  # Replace with the new IP address you want to whitelist
-      Description: Whitelisted IP for SSH access
+      Description: Whitelisted IP for SSH accesss
