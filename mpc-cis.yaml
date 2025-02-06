@@ -30,11 +30,8 @@ Resources:
       Tags:
         - Key: Name
           Value: Marikina Polytechnic College - CIS
-IPAssoc:
-  Type: AWS::EC2::EIPAssociation
-  Properties:
-    InstanceId: !Ref MPCCISInstance  # Reference to your EC2 instance
-    AllocationId: !Ref eipalloc-005a8d9cc9ea409b3 # Replace with reference to your Elastic IP Allocation ID
+
+          
 
 
 Outputs:
