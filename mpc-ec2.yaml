@@ -16,7 +16,7 @@ Resources:
             Encrypted: false
             DeleteOnTermination: true
             Iops: 3000
-            SnapshotId: snap-0e78c6c71b35e19cb
+            SnapshotId: snap-0e78c6c71b35e19cb/dev/xvda
             VolumeSize: 200
             VolumeType: gp3
       NetworkInterfaces:
