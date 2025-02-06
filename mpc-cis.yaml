@@ -4,7 +4,7 @@ Description: 'Marikina Polytechnic College EC2 Instance - CIS'
 
 Resources:
 
-  MPC_CISInstance:
+  MPCCISInstance:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0be48b687295f8bd6
