@@ -34,7 +34,7 @@ Resources:
 Outputs:
   InstanceId:
     Description: EC2 Instance ID
-    Value: !Ref MPC_CISInstance
+    Value: !Ref MPCCISInstance
 #WHITELISTING
 #WhitelistNewIP:
 #    Type: AWS::EC2::SecurityGroupIngress
