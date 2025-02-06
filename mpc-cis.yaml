@@ -31,6 +31,12 @@ Resources:
         - Key: Name
           Value: Marikina Polytechnic College - CIS
 
+IPAssoc:
+  Type: AWS::EC2::EIPAssociation
+  Properties:
+    InstanceId: !Ref MPCCISInstance
+    AllocationId: eipalloc-005a8d9cc9ea409b3 ## PublicIP of CIS (ElasticIP)
+
 Outputs:
   InstanceId:
     Description: EC2 Instance ID
