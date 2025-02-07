@@ -44,7 +44,7 @@ Resources:
     Type: AWS::EC2::EIPAssociation
     Properties:
       InstanceId: !Ref MPCCISInstance
-      AllocationId: eipalloc-005a8d9cc9ea409b3  # The existing Elastic IP allocation ID
+      AllocationId: eipalloc-01490865f938dc91d  # The existing Elastic IP allocation ID
 
 
 Outputs:
