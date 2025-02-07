@@ -28,7 +28,7 @@ Resources:
         CPUCredits: standard
       Tags:
         - Key: Name
-          Value: Marikina Polytechnic College - CIS
+          Value: Marikina Polytechnic College - CIS - Additional VMs
 
   WhitelistNewIP:
     Type: AWS::EC2::SecurityGroupIngress
