@@ -28,7 +28,7 @@ Resources:
         CPUCredits: standard
       Tags:
         - Key: Name
-          Value: Marikina Polytechnic College - LMS
+          Value: Marikina Polytechnic College - LMS - Additional VMs
 
   WhitelistNewIP: #TESTING_REMOVE THIS OR REPLACE - this is for template
     Type: AWS::EC2::SecurityGroupIngress
